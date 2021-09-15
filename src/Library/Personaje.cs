@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Library
 {
-    class Personaje
+    public class Personaje
     {
         private string nombre;
         private string raza;
