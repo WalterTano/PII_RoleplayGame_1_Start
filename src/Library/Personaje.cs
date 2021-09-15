@@ -15,6 +15,7 @@ namespace Library
 
         public Personaje(string nombre, Raza raza, int vida, int ataque, int defensa)
         {
+            this.Inventario = new ArrayList();
             this.Nombre = nombre;
             this.Raza = raza;
             this.Vida = vida;
