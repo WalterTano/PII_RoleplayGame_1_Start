@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace TierraMedia
+namespace Library
 {
     class Personaje
     {
@@ -42,25 +42,32 @@ namespace TierraMedia
 
         public void Curar(Personaje objetivo)
         {
-            bool puedeCurar = false;
-            foreach(Item objeto in this.Inventario){
-
-            }
             if(objetivo.Vida > 0 && this.Vida > 0){
-                int dano = this.Ataque;
-                int defensaObjetivo = objetivo.Defensa;
+                int curacion = this.Ataque;
+                bool puedeCurar = false;
                 foreach(Item objeto in this.Inventario){
-                    dano += objeto.Ataque;
+                    if(objeto.Tipo == "Curativo"){
+                        puedeCurar = true;
+                        curacion += objeto.Ataque;
+                    }
                 }
-                foreach(Item objeto in objetivo.Inventario){
-                    defensaObjetivo += objeto.Defensa;
-                }
-                dano -= defensaObjetivo;
-
-                if(dano >= 0){
-                    objetivo.Vida -= dano;
+                if(curacion >= 0 && puedeCurar){
+                    objetivo.Vida += curacion;
                 }
             }
+        }
+
+        public void AgregarItem(Item objeto){
+            foreach(string razaObjeto in objeto.Compatible){
+                if(this.Raza == raza){
+                    this.Inventario.Add(objeto);
+                    break;
+                }
+            }
+        }
+
+        public void QuitarItem(Item objeto){
+            this.Inventario.Remove(objeto);
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
