@@ -6,14 +6,14 @@ namespace Library
     public class Personaje
     {
         private string nombre;
-        private string raza;
+        private Raza raza;
         private int vida;
         private int vidaInicial;
         private int ataque;
         private int defensa;
         private ArrayList inventario;
 
-        public Personaje(string nombre, string raza, int vida, int ataque, int defensa)
+        public Personaje(string nombre, Raza raza, int vida, int ataque, int defensa)
         {
             this.Nombre = nombre;
             this.Raza = raza;
@@ -58,7 +58,7 @@ namespace Library
         }
 
         public void AgregarItem(Item objeto){
-            foreach(string razaObjeto in objeto.Compatible){
+            foreach(Raza razaObjeto in objeto.Compatible){
                 if(this.Raza == raza){
                     this.Inventario.Add(objeto);
                     break;
@@ -71,7 +71,7 @@ namespace Library
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
-        public string Raza { get => raza; set => raza = value; }
+        public Raza Raza { get => raza; set => raza = value; }
         public int Vida { get => vida; set => vida = value; }
         public int Ataque { get => ataque; set => ataque = value; }
         public int Defensa { get => defensa; set => defensa = value; }
