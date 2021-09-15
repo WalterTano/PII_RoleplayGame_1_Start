@@ -3,11 +3,12 @@ using System.Collections;
 
 namespace Library
 {
-    class Personaje
+    public class Personaje
     {
         private string nombre;
         private string raza;
         private int vida;
+        private int vidaInicial;
         private int ataque;
         private int defensa;
         private ArrayList inventario;
@@ -17,6 +18,7 @@ namespace Library
             this.Nombre = nombre;
             this.Raza = raza;
             this.Vida = vida;
+            this.VidaInicial = vida;
             this.Ataque = ataque;
             this.Defensa = defensa;
         }
@@ -43,16 +45,14 @@ namespace Library
         public void Curar(Personaje objetivo)
         {
             if(objetivo.Vida > 0 && this.Vida > 0){
-                int curacion = this.Ataque;
                 bool puedeCurar = false;
                 foreach(Item objeto in this.Inventario){
                     if(objeto.Tipo == "Curativo"){
                         puedeCurar = true;
-                        curacion += objeto.Ataque;
                     }
                 }
-                if(curacion >= 0 && puedeCurar){
-                    objetivo.Vida += curacion;
+                if(puedeCurar){
+                    objetivo.Vida = objetivo.VidaInicial;
                 }
             }
         }
@@ -76,5 +76,6 @@ namespace Library
         public int Ataque { get => ataque; set => ataque = value; }
         public int Defensa { get => defensa; set => defensa = value; }
         public ArrayList Inventario { get => inventario; set => inventario = value; }
+        public int VidaInicial { get => vidaInicial; set => vidaInicial = value; }
     }
 }
