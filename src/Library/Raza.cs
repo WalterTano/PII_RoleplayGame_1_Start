@@ -5,7 +5,7 @@ namespace Library
         private string _nombre;
         public string Nombre {get;}
 
-        Raza(string nombre)
+        public Raza(string nombre)
         {
             this.Nombre = nombre;
         }
