@@ -6,7 +6,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            new Personaje( "Bavor", "Enano", 100, 5, 7);
+            new Personaje( "Thrár", "Enano", 100, 5, 7);
             new Item("Escudo", "todos", 0, 25, "ninguno");
             new Item("Hacha", "Enano", 10, 2, "ninguno");
         }
