@@ -19,12 +19,11 @@ namespace Library
         private ArrayList _hechizos;
         public ArrayList Hechizos { get; }
         
-        public Item(string tipo, string[] compatible, int ataque, int defensa, ArrayList hechizos)
+        public Item(string tipo, string[] compatible, int ataque, int defensa)
         {
             Compatible = compatible;
             Ataque = ataque;
             Defensa = defensa;
-            Hechizos = hechizos;
             Tipo = tipo;
         }
 
