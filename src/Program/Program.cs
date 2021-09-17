@@ -23,7 +23,7 @@ namespace Program
              ArrayList razasArmadura = new ArrayList();
             razasArmadura.Add(ogro);
 
-            //Declaro item con su raza de compatibilidad asignada
+            //Declaro item con su raza de compatibilidad asignada.
             Item espada = new Item("Espada", razasEspada, 35, 0);
             Item armadura = new Item("Armadura", razasEspada,0,50);
 
