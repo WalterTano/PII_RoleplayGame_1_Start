@@ -1,18 +1,12 @@
 using NUnit.Framework;
 using Library;
+using System.Collections;
 namespace Test.Library
 {
 
 
     public class ExampleTest
     {
-
-        [Test]
-        public void dummyTest()
-        {
-            Assert.True(true);
-        }
-
 
         // Lucas Giffuni
         [Test]
@@ -57,6 +51,52 @@ namespace Test.Library
             Personaje p = new Personaje("Uglúk", ogro, 1000, 200, 125);
             int expected = 125;
             Assert.AreEqual(expected, p.Defensa);
+        }
+
+        // Walter Taño
+        [Test]
+        public void TestAtacarSinArma()
+        {
+            Raza enano = new Raza("Enano");
+            Raza ogro = new Raza("Ogro");
+            Personaje p = new Personaje("Gimli", enano, 1000, 150, 150);
+            Personaje obj = new Personaje("Thrall", ogro, 1000, 200, 125);
+            
+            p.Atacar(obj);
+            int expected = 975; // obj.Vida - (p.Ataque - obj.Defensa) = 1000 - 25 = 975
+            Assert.AreEqual(expected, obj.Vida);
+        }
+
+        [Test]
+        public void TestEquiparArma(){
+            Raza enano = new Raza("Enano");
+            ArrayList compatibleArma = new ArrayList();
+            compatibleArma.Add(enano);
+            Item arma = new Item("Hacha enana", compatibleArma, 150, 25);
+
+            Personaje p = new Personaje("Gimli", enano, 1000, 150, 150);
+            p.AgregarItem(arma);
+
+            bool expected = true;
+            Assert.AreEqual(expected, p.Inventario.Contains(arma));
+        }
+
+        [Test]
+        public void TestAtacarConArma()
+        {
+            Raza enano = new Raza("Enano");
+            Raza ogro = new Raza("Ogro");
+            ArrayList compatibleArma = new ArrayList();
+            compatibleArma.Add(enano);
+            Item arma = new Item("Hacha enana", compatibleArma, 150, 25);
+
+            Personaje p = new Personaje("Gimli", enano, 1000, 150, 150);
+            p.AgregarItem(arma);
+            Personaje obj = new Personaje("Thrall", ogro, 1000, 200, 125);
+            
+            p.Atacar(obj);
+            int expected = 825; // obj.Vida - (p.Ataque + arma.Ataque - obj.Defensa) = 1000 - 175 = 825
+            Assert.AreEqual(expected, obj.Vida);
         }
 
     }
