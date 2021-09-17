@@ -99,6 +99,19 @@ namespace Test.Library
             Assert.AreEqual(expected, obj.Vida);
         }
 
+        //ezequiel
+        [Test]
+        public void TestDesequiparArma(){
+            Raza guerrero = new Raza("Guerrero");
+            ArrayList lista1 = new ArrayList();
+            lista1.Add(guerrero);
+            Item granEspada = new Item("Espada", lista1, 2, 5);
+            Personaje guerreroSinEspada = new Personaje("Gran guerrero", guerrero, 53, 876, 12);
+            guerreroSinEspada.AgregarItem(granEspada);
+            guerreroSinEspada.QuitarItem(granEspada);
+            Assert.AreEqual(false, guerreroSinEspada.Inventario.Contains(granEspada));
+        }g
+
     }
 
 
