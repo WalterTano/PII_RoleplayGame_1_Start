@@ -27,7 +27,7 @@ namespace Program
             Item espada = new Item("Espada", razasEspada, 35, 0);
             Item armadura = new Item("Armadura", razasEspada,0,50);
 
-            //Agrego items al personaje
+            //Agrego items al personaje.
             ugluk.AgregarItem(espada);
             ugluk.AgregarItem(armadura);
 
