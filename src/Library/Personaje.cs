@@ -59,12 +59,9 @@ namespace Library
         }
 
         public void AgregarItem(Item objeto){
-            foreach(Raza razaObjeto in objeto.Compatible){
-                if(this.Raza == raza){
-                    this.Inventario.Add(objeto);
-                    break;
-                }
-            }
+            if(objeto.Compatible.Contains(this.Raza)){
+                this.Inventario.Add(objeto);
+            }            
         }
 
         public void QuitarItem(Item objeto){
