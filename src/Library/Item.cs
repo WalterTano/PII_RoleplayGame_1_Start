@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 namespace Library
@@ -7,8 +8,8 @@ namespace Library
         private string _tipo;
         public string Tipo { get;}
         
-        private string[] _compatible;
-        public string[] Compatible { get; }
+        private ArrayList _compatible;
+        public ArrayList Compatible { get; }
 
         private int _ataque;
         public int Ataque { get;  }
@@ -19,12 +20,13 @@ namespace Library
         private ArrayList _hechizos;
         public ArrayList Hechizos { get; }
         
-        public Item(string tipo, string[] compatible, int ataque, int defensa)
+        public Item(string tipo, ArrayList compatible, int ataque, int defensa)
         {
             Compatible = compatible;
             Ataque = ataque;
             Defensa = defensa;
             Tipo = tipo;
+            Hechizos = new ArrayList();
         }
 
         public void AgregarHechizo(Item item)
