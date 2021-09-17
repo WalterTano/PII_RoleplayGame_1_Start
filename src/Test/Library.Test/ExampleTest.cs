@@ -110,7 +110,7 @@ namespace Test.Library
             guerreroSinEspada.AgregarItem(granEspada);
             guerreroSinEspada.QuitarItem(granEspada);
             Assert.AreEqual(false, guerreroSinEspada.Inventario.Contains(granEspada));
-        }g
+        }
 
     }
 
