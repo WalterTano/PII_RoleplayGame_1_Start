@@ -17,10 +17,8 @@ namespace Program
             ArrayList lista_raza = new ArrayList();
             lista_raza.Add(enano);
 
-            ArrayList lista_hechizos = new ArrayList();
-
-            Item escudoParaEnanos = new Item("Escudo", lista_raza, 0, 25, lista_hechizos);
-            Item hachaDeGuerraParaEnanos = new Item("Hacha Doble", lista_raza, 10, 2, lista_hechizos);
+            Item escudoParaEnanos = new Item("Escudo", lista_raza, 0, 25);
+            Item hachaDeGuerraParaEnanos = new Item("Hacha Doble", lista_raza, 10, 2);
 
             elEnanoTrhar.AgregarItem(escudoParaEnanos);
             elEnanoTrhar.AgregarItem(hachaDeGuerraParaEnanos);
