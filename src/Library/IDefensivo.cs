@@ -3,8 +3,10 @@ using System.Collections;
 
 namespace Library
 {
-    public interface Defencivo
+    public interface IDefencivo
     { 
-        int defensa {get,};     
+        int defensa {get;}  
         
     }
+}
+
