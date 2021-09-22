@@ -4,7 +4,7 @@ namespace Library
 {
     public interface IMagico
     {
-        void magic(Item item);
+        void UsarHechizo(IHechizo hechizo);
 
     }
 }
