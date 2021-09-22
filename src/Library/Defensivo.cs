@@ -8,3 +8,4 @@ namespace Library
         int defensa {get,};     
         
     }
+}
