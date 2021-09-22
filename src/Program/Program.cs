@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Library;
 using System.Collections;
 
@@ -12,7 +12,7 @@ namespace Program
             //Manuel Iglesias
             Raza enano = new Raza("Enano");
 
-            Personaje elEnanoTrhar = new Personaje( "Thrár", enano, 100, 5, 7);
+            IPersonaje elEnanoTrhar = new Enano( "Thrár", enano, 100, 5, 7);
 
             ArrayList lista_raza = new ArrayList();
             lista_raza.Add(enano);
@@ -20,12 +20,12 @@ namespace Program
             Item escudoParaEnanos = new Item("Escudo", lista_raza, 0, 25);
             Item hachaDeGuerraParaEnanos = new Item("Hacha Doble", lista_raza, 10, 2);
 
-            elEnanoTrhar.AgregarItem(escudoParaEnanos);
-            elEnanoTrhar.AgregarItem(hachaDeGuerraParaEnanos);
+            elEnanoTrhar.agregarItem(escudoParaEnanos);
+            elEnanoTrhar.agregarItem(hachaDeGuerraParaEnanos);
           
             //Walter Taño
             Raza MAGO = new Raza("Mago");
-            Personaje personajeWalter = new Personaje("Walter", MAGO, 100, 35, 35);
+            IPersonaje personajeWalter = new Mago("Walter", MAGO, 100, 35, 35);
 
             Item hechizoWalter = new Item("Hechizo", new ArrayList(), 10, 0);
             ArrayList razasMago = new ArrayList();
@@ -34,8 +34,8 @@ namespace Program
             bastonWalter.AgregarHechizo(hechizoWalter);
             Item tunica = new Item("Túnica de mago", razasMago, 0, 5);
 
-            personajeWalter.AgregarItem(bastonWalter);
-            personajeWalter.AgregarItem(tunica);
+            personajeWalter.agregarItem(bastonWalter);
+            personajeWalter.agregarItem(tunica);
 
           
             //Lucas Giffuni
@@ -44,7 +44,7 @@ namespace Program
             Raza ogro = new Raza("Ogro");
 
             //Declaro personaje
-            Personaje ugluk = new Personaje("Uglúk", ogro, 1000, 200, 125);
+            IPersonaje ugluk = new Ogro("Uglúk", ogro, 1000, 200, 125);
 
             //Declaro el array que contiene las razas para cada item
             ArrayList razasEspada = new ArrayList();
@@ -57,8 +57,8 @@ namespace Program
             Item armadura = new Item("Armadura", razasEspada,0,50);
 
             //Agrego items al personaje.
-            ugluk.AgregarItem(espada);
-            ugluk.AgregarItem(armadura);
+            ugluk.agregarItem(espada);
+            ugluk.agregarItem(armadura);
 
         }
         
