@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace Interfaces
+namespace Library.Interfaces
 {
     public interface IDefensivo
     { 

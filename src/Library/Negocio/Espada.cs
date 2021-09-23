@@ -1,6 +1,7 @@
 using System;
+using Library.Interfaces;
 
-namespace Negocio
+namespace Library.Negocio
 {
     public class Espada : IOfensivo
     {
