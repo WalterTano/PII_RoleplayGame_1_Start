@@ -1,5 +1,5 @@
 
-namespace Library
+namespace Interfaces
 {
     public interface IOfensivo
     {

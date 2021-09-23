@@ -1,6 +1,6 @@
 using System;
 
-namespace Library
+namespace Negocio
 {
     public class MartilloDeGuerra : IOfensivo
     {

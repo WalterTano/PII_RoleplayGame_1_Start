@@ -1,4 +1,4 @@
-namespace Library
+namespace Negocio
 {
     public class Raza
     {
