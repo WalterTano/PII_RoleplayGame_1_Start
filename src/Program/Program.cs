@@ -1,66 +1,32 @@
+﻿using System.Collections;
+using Library.Negocio;
+using Library.Interfaces;
 using System;
-using Library;
-using System.Collections;
 
 namespace Program
 {
+
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            //Manuel Iglesias
-            Raza enano = new Raza("Enano");
+            RazaEnano razaEnano = new RazaEnano();
 
-            Personaje elEnanoTrhar = new Personaje( "Thrár", enano, 100, 5, 7);
+            IPersonaje enano1 = new Enano("Thrár", razaEnano, 100, 5, 7);
+            ITem martillo = new MartilloDeGuerra("Martillo", 100, "nose", 15);
+            
 
-            ArrayList lista_raza = new ArrayList();
-            lista_raza.Add(enano);
+            martillo.AgregarRazaCompatible(razaEnano);
+            enano1.AgregarItem(martillo);
 
-            Item escudoParaEnanos = new Item("Escudo", lista_raza, 0, 25);
-            Item hachaDeGuerraParaEnanos = new Item("Hacha Doble", lista_raza, 10, 2);
 
-            elEnanoTrhar.AgregarItem(escudoParaEnanos);
-            elEnanoTrhar.AgregarItem(hachaDeGuerraParaEnanos);
-          
-            //Walter Taño
-            Raza MAGO = new Raza("Mago");
-            Personaje personajeWalter = new Personaje("Walter", MAGO, 100, 35, 35);
+            IPersonaje enano2 = new Enano("Thrár", razaEnano, 100, 5, 7);
+            enano2.AgregarItem(martillo);
 
-            Item hechizoWalter = new Item("Hechizo", new ArrayList(), 10, 0);
-            ArrayList razasMago = new ArrayList();
-            razasMago.Add(MAGO);
-            Item bastonWalter = new Item("Bastón mágico", razasMago, 20, 0);
-            bastonWalter.AgregarHechizo(hechizoWalter);
-            Item tunica = new Item("Túnica de mago", razasMago, 0, 5);
+            enano1.Atacar(enano2);
 
-            personajeWalter.AgregarItem(bastonWalter);
-            personajeWalter.AgregarItem(tunica);
-
-          
-            //Lucas Giffuni
-          
-            //Declaro razas del personaje
-            Raza ogro = new Raza("Ogro");
-
-            //Declaro personaje
-            Personaje ugluk = new Personaje("Uglúk", ogro, 1000, 200, 125);
-
-            //Declaro el array que contiene las razas para cada item
-            ArrayList razasEspada = new ArrayList();
-            razasEspada.Add(ogro);
-             ArrayList razasArmadura = new ArrayList();
-            razasArmadura.Add(ogro);
-
-            //Declaro item con su raza de compatibilidad asignada.
-            Item espada = new Item("Espada", razasEspada, 35, 0);
-            Item armadura = new Item("Armadura", razasEspada,0,50);
-
-            //Agrego items al personaje.
-            ugluk.AgregarItem(espada);
-            ugluk.AgregarItem(armadura);
-
+            Console.WriteLine(enano2.Vida);
         }
-        
     }
 }
