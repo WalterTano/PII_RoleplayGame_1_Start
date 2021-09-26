@@ -12,8 +12,8 @@ namespace Library.Interfaces
         ArrayList Compatible { get; set; }
         //ArrayList IHechizo { get; set; }
 
-        void agregarRazaCompatible(IRaza raza);
-        void quitarRazaCompatible(IRaza raza);
+        void AgregarRazaCompatible(IRaza raza);
+        void QuitarRazaCompatible(IRaza raza);
     
     }
 

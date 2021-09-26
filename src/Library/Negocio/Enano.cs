@@ -16,9 +16,9 @@ namespace Library.Negocio
         public int _vidaInicial;
         public Enano(string nombre, IRaza raza, int vida, int ataque, int defensa)
         {
+            this.Raza = raza;
             this.Inventario = new ArrayList();
             this.Nombre = nombre;
-            this.Raza = raza;
             this.Vida = vida;
             this.VidaInicial = vida;
             this.Ataque = ataque;
@@ -26,7 +26,7 @@ namespace Library.Negocio
             this.Vivo = true;
         }
 
-        public void atacar(IPersonaje personaje)
+        public void Atacar(IPersonaje personaje)
         {
 
             if (personaje.Vivo && this.Vivo)
@@ -38,10 +38,10 @@ namespace Library.Negocio
                 {
                     if (item is IOfensivo)
                     {
-                        dano += item.Ataque;
+                        dano += ((IOfensivo) item).CalcularDano();
                     }
                 }
-                foreach (ITem item in this.Inventario)
+                foreach (ITem item in personaje.Inventario)
                 {
                     if (item is IDefensivo)
                     {
@@ -55,8 +55,9 @@ namespace Library.Negocio
                     personaje.Vida -= dano;
                 }
             }
+            personaje.Vivo = personaje.Vida > 0;
         }
-        public void curar(IPersonaje personaje)
+        public void Curar(IPersonaje personaje)
         {
 
             if (personaje.Vivo && this.Vivo)
@@ -77,7 +78,7 @@ namespace Library.Negocio
                 }
             }
         }
-        public void agregarItem(ITem item)
+        public void AgregarItem(ITem item)
         {
             if (item.Compatible.Contains(this.Raza))
             {
@@ -85,7 +86,7 @@ namespace Library.Negocio
             }
         }
 
-        public void quitarItem(ITem item)
+        public void QuitarItem(ITem item)
         {
             this.Inventario.Remove(item);
         }

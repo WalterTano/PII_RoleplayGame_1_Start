@@ -15,13 +15,13 @@ namespace Library.Interfaces
         bool Vivo {get; set;}
 
 
-        void atacar(IPersonaje personaje);
+        void Atacar(IPersonaje personaje);
 
-        void curar(IPersonaje personaje);
+        void Curar(IPersonaje personaje);
 
-        void agregarItem(ITem item);
+        void AgregarItem(ITem item);
 
-        void quitarItem(ITem item);
+        void QuitarItem(ITem item);
 
 
     }

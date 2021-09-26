@@ -2,14 +2,14 @@ using Library.Interfaces;
 namespace Library.Negocio
 {
 
-    public class RazaEnano : IRaza
+    public class RazaOgro : IRaza
     {
         private string _nombre;
         public string Nombre { get => _nombre; }
 
-        public RazaEnano()
+        public RazaOgro()
         {
-            this._nombre = "Enano";
+            this._nombre = "Ogro";
         }
     }
 

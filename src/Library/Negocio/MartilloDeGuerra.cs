@@ -16,6 +16,7 @@ namespace Library.Negocio
         public MartilloDeGuerra(string nombre, int ataque, string descripcion, int peso)
         {
             this.Compatible = new ArrayList();
+            this.Defensa = 0;
             this.Nombre = nombre;
             this.Ataque = ataque;
             this.Descripcion = descripcion;
@@ -28,12 +29,12 @@ namespace Library.Negocio
             return Convert.ToInt32(retorno);
         }
 
-        public void agregarRazaCompatible(IRaza raza)
+        public void AgregarRazaCompatible(IRaza raza)
         {
             this.Compatible.Add(raza);
         }
 
-        public void quitarRazaCompatible(IRaza raza)
+        public void QuitarRazaCompatible(IRaza raza)
         {
             this.Compatible.Remove(raza);
         }
