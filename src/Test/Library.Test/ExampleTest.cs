@@ -106,16 +106,13 @@ namespace Test.Library
         [Test]
         public void TestDesequiparArma()
         {
-            /*
-                Raza guerrero = new Raza("Guerrero");
-                ArrayList lista1 = new ArrayList();
-                lista1.Add(guerrero);
-                Item granEspada = new Item("Espada", lista1, 2, 5);
-                Personaje guerreroSinEspada = new Personaje("Gran guerrero", guerrero, 53, 876, 12);
-                guerreroSinEspada.AgregarItem(granEspada);
-                guerreroSinEspada.QuitarItem(granEspada);
-                Assert.AreEqual(false, guerreroSinEspada.Inventario.Contains(granEspada));
-                */
+                IRaza ogro = new RazaOgro();
+                ITem granEspada = new Espada("Gran Espada", 50, "", 75);
+                granEspada.AgregarRazaCompatible(ogro);
+                IPersonaje granOgro = new Ogro("Gran Ogro", ogro, 876, 5, 32);
+                granOgro.AgregarItem(granEspada);
+                granOgro.QuitarItem(granEspada);
+                Assert.AreEqual(false, granOgro.Inventario.Contains(granEspada));
         }
 
     }
